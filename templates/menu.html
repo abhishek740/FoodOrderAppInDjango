@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% load static %} 
+{% block content %}
+  <div class="container pt-3">
+      <div class="row">
+        
+          <div class="col-sm-4">
+            <img src="{% static 'images/first.jpg' %}" alt="My image" style="width: 100%;">
+          </div>
+          <div class="col-sm-4">
+            <img src="{% static 'images/second.jpg' %}" alt="My image" style="width: 100%;">
+          </div>
+          <div class="col-sm-4">
+            <img src="{% static 'images/third.jpg' %}" alt="My image" style="width: 100%;">
+          </div>  
+      </div>
+      <div class="pt-3">  
+        <table class="table table-hover  shadow p-3 mb-5 bg-body rounded">
+          <thead>
+            <tr>
+              <th scope="col"> Item Name  </th>
+              <th scope="col"> Price </th>
+              <th scope="col">ACTION </th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            {% for m in menu %}
+            <tr>
+             
+              <td> {{m.ItemName}} </td>
+              <td> {{m.price}} </td>
+              <td> <A class="btn btn-outline-danger" href="/cart/{{m.id}}">ADD</A>   </td>
+  
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+        </table>
+      </div>
+ 
+
+
+  </div>
+{%endblock%}
